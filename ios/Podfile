@@ -13,8 +13,8 @@ install! 'cocoapods',
 
 prepare_react_native_project!
 
-# @generated begin @rnmapbox/maps-rnmapboxmapsimpl - expo prebuild (DO NOT MODIFY) sync-daf991104adea91c23045af631b6d56f873052c1
-$RNMapboxMapsDownloadToken = 'sk.eyJ1Ijoib2NlZSIsImEiOiJjbTg4c3duNTIwaHdiMmpzNWprYm9zcmhmIn0.puNqDdFp_sYrMcH9-5FD9Q'
+# @generated begin @rnmapbox/maps-rnmapboxmapsimpl - expo prebuild (DO NOT MODIFY) sync-bd5a8855900e18135feb68c03b1df5ea2445a6fd
+$RNMapboxMapsDownloadToken = '{EXPO_PUBLIC_MAPBOX_TOKEN read docs}'
 $RNMapboxMapsVersion = '11.0.0'
 # @generated end @rnmapbox/maps-rnmapboxmapsimpl
 target 'zavodusmobile' do

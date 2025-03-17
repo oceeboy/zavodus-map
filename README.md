@@ -29,7 +29,7 @@ Zavodus Map is a **React Native** mobile application that integrates **Mapbox** 
 
 ```sh
 # Clone the repository
-git clone <repo>
+git clone https://github.com/oceeboy/zavodus-map
 cd zavodus-map
 
 # Install dependencies
