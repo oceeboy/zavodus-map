@@ -1,50 +1,99 @@
-# Welcome to your Expo app 👋
+# Zavodus Map
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 🚀 Overview
 
-## Get started
+Zavodus Map is a **React Native** mobile application that integrates **Mapbox** for displaying maps and navigation. It features a **drawer menu**, a **support chat demo**, and allows users to navigate from their **current location** to predefined markers on the map.
 
-1. Install dependencies
+## 🛠 Tech Stack
 
-   ```bash
-   npm install
-   ```
+- **React Native**
+- **Expo**
+- **Mapbox**
+- **Zod** (Validation)
+- **React Hook Form** (Form handling)
+- **Reanimated & Gesture Handler** (Smooth animations & gestures)
+- **Zustand** (State management)
+- **ky** (HTTP client)
+- **@turf/helpers** (Geospatial calculations)
+- **@hookform/resolvers** (Form validation resolver)
 
-2. Start the app
+## ✨ Features
 
-   ```bash
-    npx expo start
-   ```
+- **Drawer Navigation** with Profile, Support, and History screens
+- **Map with 7 random markers**
+- **Clicking on markers shows popups with details**
+- **Navigation from user’s current location to a selected marker**
+- **Demo Support Chat** for user interaction
 
-In the output, you'll find options to open the app in a
+## 📥 Installation
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+```sh
+# Clone the repository
+git clone <repo>
+cd zavodus-map
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+# Install dependencies
+npm install
 
-## Get a fresh project
+# Create environment variables
+cp .env.example .env # (Edit .env with your API keys)
 
-When you're ready, run:
+# Clean and prebuild the project
+npx expo prebuild --clean
 
-```bash
-npm run reset-project
+# Run the app
+npx expo run:ios # For iOS
+npx expo run:android # For Android
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📸 Screenshots
 
-## Learn more
+Here are some screenshots of the app:
 
-To learn more about developing your project with Expo, look at the following resources:
+### 🗺️ Map View
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+![Map View](assets/images/snapshots/mapsview.png)
 
-## Join the community
+### 📂 Drawer Menu
 
-Join our community of developers creating universal apps.
+![Drawer Menu](assets/images/snapshots/drawerview.png)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 📌 Marker Pop-up
+
+![Marker Popup](assets/images/snapshots/mapactivenav.png)
+
+### 📜 History View
+
+![History](assets/images/snapshots/historyview.png)
+
+### 👤 Profile View
+
+![Profile](assets/images/snapshots/profileview.png)
+
+### 🆘 Support Chat
+
+![Support](assets/images/snapshots/supportview.png)
+
+### 🚀 Onboarding Page
+
+![Onboarding](assets/images/snapshots/onboardpage.png)
+
+## 🎥 Demo Video
+
+<video src="assets/videos/demo.mp4" controls width="600"></video>
+
+## 🔧 Customization
+
+- **Mapbox API Key:** You need to **register on** [Mapbox](https://mapbox.com) and obtain an API key.
+- **Modular Structure:** Use the following command to generate new modules dynamically:
+
+```sh
+node generate-module.mjs modules <module-name>
+```
+
+## 🛠 Known Issues
+
+✅ No known issues or bugs.
+
+**Author:** Osieta OgheneKewve Gift  
+Feel free to contribute, report issues, or request features!
