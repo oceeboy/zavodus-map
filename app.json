@@ -49,7 +49,7 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow demo-mapapp to use your location."
+          "locationAlwaysAndWhenInUsePermission": "Allow zavodusmobile to use your location."
         }
       ]
     ],

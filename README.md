@@ -54,6 +54,10 @@ Here are some screenshots of the app:
 
 ![Map View](assets/images/snapshots/mapsview.png)
 
+### 🗺️ Map View Menu
+
+![Map View](assets/images/snapshots/mapmenu.PNG)
+
 ### 📂 Drawer Menu
 
 ![Drawer Menu](assets/images/snapshots/drawerview.png)

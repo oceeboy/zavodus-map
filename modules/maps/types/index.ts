@@ -1,3 +1,12 @@
+export type MapStyleType =
+  | "Standard"
+  | "Satellite"
+  | "Streets"
+  | "Light"
+  | "Dark"
+  | "Outdoors"
+  | "Navigation";
+
 export type FullLocationData = {
   id: any;
   latitude: number;

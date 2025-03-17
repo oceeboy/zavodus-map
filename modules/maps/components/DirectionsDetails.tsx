@@ -28,7 +28,7 @@ export function DirectionDetails() {
               lineWidth: 2,
               lineCap: "round",
               lineJoin: "round",
-              lineColor: theme.primary,
+              lineColor: theme.colors.green,
             }}
           />
         </ShapeSource>

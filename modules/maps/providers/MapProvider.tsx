@@ -7,10 +7,16 @@ import React, {
   useRef,
 } from "react";
 import * as location from "expo-location";
-import { FeatureProperties, FullLocationData, RouteData } from "../types";
+import {
+  FeatureProperties,
+  FullLocationData,
+  MapStyleType,
+  RouteData,
+} from "../types";
 import { getDirection, getGeocoding } from "../services/direction.service";
 
 interface MapContextType {
+  mapStyle: MapStyleType;
   userLocation: any;
   direction: RouteData | null;
   directionCoordinate: any;
@@ -18,6 +24,7 @@ interface MapContextType {
   routeTime: any;
   routeDistance: any;
   details: FeatureProperties | null;
+  setMapStyle: React.Dispatch<React.SetStateAction<MapStyleType>>;
   setUserLocation: React.Dispatch<React.SetStateAction<any>>;
   setDirection: React.Dispatch<React.SetStateAction<RouteData | null>>;
   setDirectionCoordinate: React.Dispatch<React.SetStateAction<any>>;
@@ -37,6 +44,7 @@ const MapProvider = ({ children }: PropsWithChildren) => {
   const [routeTime, setRouteTime] = useState<any>(null);
   const [routeDistance, setRouteDistance] = useState<any>(null);
   const [details, setDetails] = useState<any>(null);
+  const [mapStyle, setMapStyle] = useState<MapStyleType>("Dark");
 
   const lastFetchedDestination = useRef<{
     longitude: number;
@@ -94,6 +102,7 @@ const MapProvider = ({ children }: PropsWithChildren) => {
   return (
     <MapContext.Provider
       value={{
+        mapStyle,
         userLocation,
         direction,
         directionCoordinate,
@@ -101,6 +110,7 @@ const MapProvider = ({ children }: PropsWithChildren) => {
         routeTime,
         routeDistance,
         details,
+        setMapStyle,
         setUserLocation,
         setDirection,
         setDirectionCoordinate,

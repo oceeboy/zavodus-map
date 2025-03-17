@@ -11,7 +11,7 @@ export default function Index() {
   const { theme } = useTheme();
 
   function goNextPage() {
-    router.push("/stacks/maps/maps-screen");
+    router.replace("/stacks/maps/maps-screen");
   }
 
   return (

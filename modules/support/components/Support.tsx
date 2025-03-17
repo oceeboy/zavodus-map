@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -18,6 +18,9 @@ export function Support() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState<string>("");
   const { theme } = useTheme();
+  const insets = useSafeAreaInsets();
+  const flatListRef = useRef<FlatList<Message>>(null);
+
   const sendMessage = () => {
     if (!inputText.trim()) return;
 
@@ -28,7 +31,7 @@ export function Support() {
       time: new Date().toLocaleTimeString(),
     };
 
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
+    setMessages((prevMessages) => [newMessage, ...prevMessages]);
     setInputText("");
 
     setTimeout(() => {
@@ -38,13 +41,14 @@ export function Support() {
         text: getBotResponse(inputText),
         time: new Date().toLocaleTimeString(),
       };
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
+      setMessages((prevMessages) => [botMessage, ...prevMessages]);
     }, 1000);
   };
-  const insets = useSafeAreaInsets();
+
   return (
     <View style={styles.container}>
       <FlatList
+        ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
@@ -63,34 +67,31 @@ export function Support() {
             ]}
           >
             <Text
-              style={
-                (styles.messageText,
+              style={[
+                styles.messageText,
                 {
                   color:
                     item.sender === "user"
                       ? theme.BOT.TEXT.PRIMARY
                       : theme.BOT.TEXT.SECONDARY,
-                })
-              }
+                },
+              ]}
             >
               {item.text}
             </Text>
             <Text style={styles.timeText}>{item.time}</Text>
           </View>
         )}
+        inverted
+        contentContainerStyle={{ paddingBottom: 50 }}
       />
-      <View
-        style={[
-          styles.inputContainer,
-          {
-            bottom: insets.bottom,
-          },
-        ]}
-      >
+
+      <View style={[styles.inputContainer, { paddingBottom: insets.bottom }]}>
         <TextInput
           shouldRasterizeIOS
           style={styles.input}
           placeholder="Say hello..."
+          placeholderTextColor={"black"}
           value={inputText}
           onChangeText={setInputText}
         />
@@ -113,7 +114,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 10,
   },
-
   messageText: {
     fontSize: THEME.FONT_SIZE.MEDIUM,
     fontFamily: THEME.FONT_FAMILY.TEXT.MEDIUM,
@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderTopWidth: 1,
     borderColor: "#ddd",
+    backgroundColor: "white",
   },
   input: {
     flex: 1,

@@ -65,14 +65,14 @@ type Theme = {
 };
 
 const DARK: Theme = {
-  primary: "#333",
-  secondary: "#444",
+  primary: "#fff",
+  secondary: "#f7f7f7",
   text: {
-    primary: "#fff",
+    primary: "#000",
   },
   BOT: {
     BACKGROUND: {
-      PRIMARY: "#333",
+      PRIMARY: "#F0A04B",
       SECONDARY: "#e0e0e0",
     },
     TEXT: {
@@ -137,7 +137,7 @@ const LIGHT: Theme = {
     },
   },
   BUTTON: {
-    PRIMARY: "#F0A04B",
+    PRIMARY: "#A0430A",
     SUCCESS: "#4CAF50",
     SECONDARY: "#2196F3",
     DANGER: "#D32F2F",

@@ -5,11 +5,14 @@ import { DirectionDetails } from "./DirectionsDetails";
 import * as Location from "expo-location";
 import React, { useEffect, useState } from "react";
 import { Alert, ActivityIndicator, View, Text } from "react-native";
+import { useMap } from "../providers/MapProvider";
+import { MapStyleType } from "../types";
 
 Mapbox.setAccessToken(`${process.env.EXPO_PUBLIC_ACCESS_TOKEN}`);
 
 export function Maps() {
   const { theme } = useTheme();
+  const { mapStyle } = useMap();
   const [userLocation, setUserLocation] =
     useState<Location.LocationObject | null>(null);
   const [loading, setLoading] = useState(true);
@@ -59,8 +62,22 @@ export function Maps() {
     return null;
   }
 
+  const mapStyleURLs: Record<MapStyleType, string> = {
+    Dark: "mapbox://styles/mapbox/dark-v11",
+    Light: "mapbox://styles/mapbox/light-v11",
+    Satellite: "mapbox://styles/mapbox/standard-satellite",
+    Standard: "mapbox://styles/mapbox/standard",
+    Streets: "mapbox://styles/mapbox/streets-v12",
+    Navigation: "mapbox://styles/mapbox/navigation-day-v1",
+    Outdoors: "mapbox://styles/mapbox/outdoors-v12",
+  };
+
+  const selectedStyle = mapStyle
+    ? mapStyleURLs[mapStyle]
+    : "mapbox://styles/mapbox/streets-v12";
+
   return (
-    <MapView style={{ flex: 1 }} styleURL="mapbox://styles/mapbox/dark-v11">
+    <MapView style={{ flex: 1, position: "relative" }} styleURL={selectedStyle}>
       <Camera
         followZoomLevel={10}
         followUserLocation
